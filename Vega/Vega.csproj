@@ -22,6 +22,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,11 +32,16 @@
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Compile Remove="Migrations011\**" />
+    <Compile Remove="Migrations1234\**" />
     <Content Remove="ClientApp\**" />
     <Content Remove="Migrations011\**" />
+    <Content Remove="Migrations1234\**" />
     <EmbeddedResource Remove="Migrations011\**" />
+    <EmbeddedResource Remove="Migrations1234\**" />
     <None Remove="Migrations011\**" />
+    <None Remove="Migrations1234\**" />
     <Watch Remove="Migrations011\**" />
+    <Watch Remove="Migrations1234\**" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

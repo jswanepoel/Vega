@@ -2,9 +2,12 @@
   "name": "Vega",
   "private": true,
   "version": "0.0.0",
-  "scripts": {
-    "test": "karma start ClientApp/test/karma.conf.js"
-  },
+    "scripts": {
+        "test": "karma start ClientApp/test/karma.conf.js",
+        "build:dev": "webpack --progress --color",
+        "build:aot": "webpack --env.aot --env.client & webpack --env.aot --env.server",
+        "postinstall": "npm run build:dev"
+    },
   "devDependencies": {
     "@angular/animations": "4.2.5",
     "@angular/common": "4.2.5",
