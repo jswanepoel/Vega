@@ -7,6 +7,7 @@ namespace Vega.Persistence
     {
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Make> Makes { get; set; }
+        public DbSet<Model> Models { get; set; }
         public DbSet<Feature> Features { get; set; }
 
         public VegaDbContext(DbContextOptions<VegaDbContext> options) : base(options)
@@ -15,20 +16,10 @@ namespace Vega.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Vehicle>()
-                .HasMany(v => v.Features)
-                .WithOne(v => v.Vehicle)
-                .HasPrincipalKey(v => v.Id);
-
+            // Setup for a many to many relationship
             modelBuilder.Entity<VehicleFeature>().HasKey(vf => new { vf.VehicleId, vf.FeatureId });
-
-
-
-            //        modelBuilder
-            //.Entity<PRAT>()
-            //.HasOne(e => e.VW_PRATICHE_CONTIPO)
-            //.WithOne()
-            //.HasForeignKey<VW_PRATICHE_CONTIPO>();
+            modelBuilder.Entity<VehicleFeature>().HasOne(vf => vf.Vehicle).WithMany(v => v.Features).HasForeignKey(vf => vf.VehicleId);
+            modelBuilder.Entity<VehicleFeature>().HasOne(vf => vf.Feature).WithMany(f => f.Features).HasForeignKey(vf => vf.FeatureId);
         }
     }
 }

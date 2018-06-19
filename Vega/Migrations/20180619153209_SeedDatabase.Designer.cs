@@ -9,8 +9,8 @@ using Vega.Persistence;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    [Migration("20180617173203_AddVehicle")]
-    partial class AddVehicle
+    [Migration("20180619153209_SeedDatabase")]
+    partial class SeedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -122,7 +122,7 @@ namespace Vega.Migrations
             modelBuilder.Entity("Vega.Models.VehicleFeature", b =>
                 {
                     b.HasOne("Vega.Models.Feature", "Feature")
-                        .WithMany()
+                        .WithMany("Features")
                         .HasForeignKey("FeatureId")
                         .OnDelete(DeleteBehavior.Cascade);
 

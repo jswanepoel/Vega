@@ -32,15 +32,20 @@
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Compile Remove="Migrations011\**" />
+    <Compile Remove="Migrations12345\**" />
     <Compile Remove="Migrations1234\**" />
     <Content Remove="ClientApp\**" />
     <Content Remove="Migrations011\**" />
+    <Content Remove="Migrations12345\**" />
     <Content Remove="Migrations1234\**" />
     <EmbeddedResource Remove="Migrations011\**" />
+    <EmbeddedResource Remove="Migrations12345\**" />
     <EmbeddedResource Remove="Migrations1234\**" />
     <None Remove="Migrations011\**" />
+    <None Remove="Migrations12345\**" />
     <None Remove="Migrations1234\**" />
     <Watch Remove="Migrations011\**" />
+    <Watch Remove="Migrations12345\**" />
     <Watch Remove="Migrations1234\**" />
   </ItemGroup>
 
